@@ -1,10 +1,13 @@
 <template>
-  <v-form>
-    <v-container fluid>
-      <!-- <v-col col="12" md="4"></v-col>
-      <v-col col="12" md="4"></v-col>-->
+  <v-container fluid>
+    <!-- <v-col col="12" md="4"></v-col>
+    <v-col col="12" md="4"></v-col>-->
+    <v-form v-model="valid" ref="form">
+      
       <v-col col="12" md="4">
-        
+         <center>
+          <h1>CENTER LIFE</h1>
+        </center>
         <!-- <section >
           <h3>How do you feel in the center?</h3>
           <input type="radio" v-model="feeling" value="Comfortable" />Comfortable
@@ -12,45 +15,50 @@
           <input type="radio" v-model="feeling" value="Homesick" />Homesick 
           <input type="radio" v-model="feeling" value="Sad" />Sad 
          
-        </section> -->
-       
-        <v-radio-group  v-model="question1" column>
-          <h3>How do you feel in the center?</h3>
-          <v-radio  type="radio"  label="Comfortable" value="Comfortable"></v-radio>
-          <v-radio  type="radio"  label="Happy" value="Happy"></v-radio>
-          <v-radio  type="radio"  label="Homesick" value="Homesick"></v-radio>
-          <v-radio  type="radio"  label="Sad" value="Sad"></v-radio>
-        </v-radio-group>
-          <!-- <span>value: {{question1}}</span> -->
-        <hr />
+        </section>-->
 
-        <v-radio-group v-model="question2" column>
+        <v-radio-group
+          :rules="[v => !!v || 'Item is required']"
+          required
+          v-model="question1"
+          column
+        >
+          <h3>How do you feel in the center?</h3>
+          <v-radio type="radio" label="Comfortable" value="Comfortable"></v-radio>
+          <v-radio type="radio" label="Happy" value="Happy"></v-radio>
+          <v-radio type="radio" label="Homesick" value="Homesick"></v-radio>
+          <v-radio type="radio" label="Sad" value="Sad"></v-radio>
+        </v-radio-group>
+        <!-- <span>value: {{question1}}</span> -->
+        <hr>
+
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question2" column>
           <h3>How was your relationship to your co-scholar?</h3>
           <v-radio type="radio" label="Good" value="Good"></v-radio>
           <v-radio type="radio" label="Normal" value="Normal"></v-radio>
           <v-radio type="radio" label="Bad" value="Bad"></v-radio>
         </v-radio-group>
         <!-- <span>value: {{question2}}</span> -->
-        <hr />
+        <hr>
 
-        <v-radio-group v-model="question3" column>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question3" column>
           <h3>How was your relationship with PN Staff?</h3>
           <v-radio type="radio" label="Good" value="Good"></v-radio>
           <v-radio type="radio" label="Normal" value="Normal"></v-radio>
           <v-radio type="radio" label="Bad" value="Bad"></v-radio>
         </v-radio-group>
-         <!-- <span>value: {{question3}}</span> -->
-        <hr />
-        <v-radio-group v-model="question4" column>
+        <!-- <span>value: {{question3}}</span> -->
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question4" column>
           <h3>How was your overall performance and collaboration of the tasking team?</h3>
           <v-radio type="radio" label="Good" value="Good"></v-radio>
           <v-radio type="radio" label="Normal" value="Normal"></v-radio>
           <v-radio type="radio" label="Bad" value="Bad"></v-radio>
         </v-radio-group>
-         <!-- <span>value: {{question4}}</span> -->
-        <hr />
+        <!-- <span>value: {{question4}}</span> -->
+        <hr>
 
-        <v-radio-group v-model="question6" column>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question5" column>
           <h3>What PN core values did you experience this week?</h3>
           <v-radio type="radio" label="Demand" value="Demand"></v-radio>
           <v-radio type="radio" label="Respect" value="Respect"></v-radio>
@@ -58,9 +66,9 @@
           <v-radio type="radio" label="Solidarity" value="Solidarity"></v-radio>
           <v-radio type="radio" label="Trust" value="Trust"></v-radio>
         </v-radio-group>
-         <!-- <span>value: {{question5}}</span> -->
-        <hr />
-        <v-radio-group v-model="question5" column>
+        <!-- <span>value: {{question5}}</span> -->
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question6" column>
           <h3>Which educational activities do you prefer?</h3>
           <v-radio type="radio" label="Sports" value="Sports"></v-radio>
           <v-radio type="radio" label="Lecture" value="Lecture"></v-radio>
@@ -69,10 +77,10 @@
           <!-- <v-radio label="Others" value="educ-5"></v-radio> -->
           <!-- <v-text-field  label="Others"></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question6}}</span> -->
+        <!-- <span>value: {{question6}}</span> -->
 
-        <hr />
-        <v-radio-group v-model="question7" column>
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question7" column>
           <h3>What soft skill or behavior that you want to improve?</h3>
           <v-radio type="radio" label="Listening Skill" value="Listening Skill"></v-radio>
           <v-radio type="radio" label="Anger Management" value="Anger Management"></v-radio>
@@ -85,11 +93,11 @@
           <!-- <v-radio type="radio" label="Others" value="Others"></v-radio> -->
           <!-- <v-text-field  label="Others"></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question7}}</span> -->
+        <!-- <span>value: {{question7}}</span> -->
         <center>
           <h1>ACADEMICS</h1>
         </center>
-        <v-radio-group v-model="question8" column>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question8" column>
           <h3>What subject do you find difficult?</h3>
           <v-radio type="radio" label="Programming" value="Programming"></v-radio>
           <v-radio type="radio" label="Web Development" value="Web Development"></v-radio>
@@ -99,9 +107,9 @@
           <!-- <v-radio type="radio" label="Others" value="Others"></v-radio> -->
           <!-- <v-text-field label="Others"></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question8}}</span> -->
-        <hr />
-        <v-radio-group v-model="question9" column>
+        <!-- <span>value: {{question8}}</span> -->
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question9" column>
           <h3>How do you deal with your difficulties?</h3>
           <v-radio type="radio" label="Self Study" value="Self Study"></v-radio>
           <v-radio type="radio" label="Ask for Help" value="Ask for Help"></v-radio>
@@ -109,9 +117,9 @@
           <!-- <v-radio type="radio" label="Others" value="Others"></v-radio> -->
           <!-- <v-text-field label="Others"></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question9}}</span> -->
-        <hr />
-        <v-radio-group v-model="question10" column>
+        <!-- <span>value: {{question9}}</span> -->
+        <hr>
+        <v-radio-group v-model="question10" :rules="[v=>!!v||'required']" column>
           <h3>How was your relationship with your teacher?</h3>
           <v-radio type="radio" label="Respectful" value="Respectful"></v-radio>
           <v-radio type="radio" label="Courteus" value="Courteus"></v-radio>
@@ -120,9 +128,9 @@
           <!-- <v-radio type="radio" label="Others" value="Others"></v-radio> -->
           <!-- <v-text-field  label="Others" ></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question10}}</span> -->
-        <hr />
-        <v-radio-group v-model="question11" column>
+        <!-- <span>value: {{question10}}</span> -->
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question11" column>
           <h3>What academic skill that you want to improve?</h3>
           <v-radio type="radio" label="Critical Thinking" value="Critical Thinking"></v-radio>
           <v-radio type="radio" label="Understanding" value="Understanding"></v-radio>
@@ -131,32 +139,35 @@
           <!-- <v-radio type="radio" label="Others" value="Others"></v-radio> -->
           <!-- <v-text-field label="Others" ></v-text-field> -->
         </v-radio-group>
-         <!-- <span>value: {{question11}}</span> -->
-        <hr />
-        <v-radio-group v-model="question12" column>
+        <!-- <span>value: {{question11}}</span> -->
+        <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question12" column>
           <h3>What challenges have you encounter during class?</h3>
-          <v-radio type="radio" label="Teacher Communication"  value="Teacher Communication"></v-radio>
-          <v-radio type="radio" label="Classmates Communication"    value="Classmates Communication"></v-radio>
-          <v-radio type="radio" label="Understanding the Lesson"  value="Understanding the Lesson"></v-radio>
-          <v-radio type="radio" label="Projects"  value="Projects"></v-radio>
+          <v-radio type="radio" label="Teacher Communication" value="Teacher Communication"></v-radio>
+          <v-radio type="radio" label="Classmates Communication" value="Classmates Communication"></v-radio>
+          <v-radio type="radio" label="Understanding the Lesson" value="Understanding the Lesson"></v-radio>
+          <v-radio type="radio" label="Projects" value="Projects"></v-radio>
           <!-- <v-radio type="radio" label="Others" value="Others" @click="others" v-model="othersVal" @suspend="hideOthers"></v-radio >
-          <v-text-field  label="Others" v-if="show"></v-text-field> -->
+          <v-text-field  label="Others" v-if="show"></v-text-field>-->
         </v-radio-group>
-         <!-- <span>value: {{question12}}</span> -->
-         <br><br>
+        <!-- <span>value: {{question12}}</span> -->
+        <br>
+        <br>
 
-        <v-btn color="primary" type="submit" @click="submit">SUBMIT</v-btn>
-        <v-btn color="error" id="cancel">CANCEL</v-btn>
+        <v-btn color="primary" @click="submit">SUBMIT</v-btn>
       </v-col>
-    </v-container>
-  </v-form>
+    </v-form>
+  </v-container>
 </template>
 <script>
 export default {
   data() {
     return {
+      valid: true,
+
       // show: false,
       // othersVal: "",
+      questions1: null,
       question1: null,
       question2: null,
       question3: null,
@@ -168,33 +179,23 @@ export default {
       question9: null,
       question10: null,
       question11: null,
-      question12: null,
-     
+      question12: null
     };
   },
   methods: {
-    // handleClick(){
-    //   if (this.question12 == "Others"){
-    //     this.show = true
-    //   }else{
-    //     this.show = false
-    //   }
-    // },
+
     submit() {
-      console.log("submit profile");
-      console.log(this.question1);
-    },
-    // notothers(){
-    //   this.show=false;
-    // },
-    // others(){
+      if (this.$refs.form.validate()) {
+        // submit
+        console.log("ok");
+      } else {
+        console.log("required");
+      }
       
-    //   this.show = true;
-    //   console.log(this.othersVal)
-    // },
-    // hideOthers(){
-    //   this.show = false
-    // }
+    }
+  
+
+   
   }
 };
 </script>
