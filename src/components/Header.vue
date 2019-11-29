@@ -28,13 +28,6 @@
           <v-list-item>
             <router-link to="/Home">HOME</router-link>
           </v-list-item>
-
-          <v-list-item>
-            <router-link to="/About">ABOUT</router-link>
-          </v-list-item>
-          <v-list-item>
-            <router-link to="/Login">LOGIN</router-link>
-          </v-list-item>
            <v-list-item>
             <router-link to="/Form">FORMS</router-link>
           </v-list-item>
@@ -48,12 +41,6 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    items: [
-      { title: "Birthday" },
-      { title: "Burial" },
-      { title: "Baptist" },
-      { title: "Wedding" }
-    ]
   }),
 
   watch: {
