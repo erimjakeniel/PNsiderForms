@@ -70,16 +70,7 @@
           <v-radio type="radio" label="Trust" value="Trust"></v-radio>
         </v-radio-group>
         <!-- <span>value: {{question5}}</span> -->
-        <hr>
-        <v-radio-group :rules="[v=>!!v||'required']" v-model="question6" column>
-          <h3>Which educational activities do you prefer?</h3>
-          <v-radio type="radio" label="Sports" value="Sports"></v-radio>
-          <v-radio type="radio" label="Lecture" value="Lecture"></v-radio>
-          <v-radio type="radio" label="Film viewing" value="Film Viewing"></v-radio>
-          <v-radio type="radio" label="Clubings" value="Clubings"></v-radio>
-          <!-- <v-radio label="Others" value="educ-5"></v-radio> -->
-          <!-- <v-text-field  label="Others"></v-text-field> -->
-        </v-radio-group>
+       
         <!-- <span>value: {{question6}}</span> -->
 
         <hr>
@@ -100,6 +91,17 @@
         <center>
           <h1>ACADEMICS</h1>
         </center>
+         <hr>
+        <v-radio-group :rules="[v=>!!v||'required']" v-model="question6" column>
+          <h3>Which educational activities do you prefer?</h3>
+          <v-radio type="radio" label="Sports" value="Sports"></v-radio>
+          <v-radio type="radio" label="Lecture" value="Lecture"></v-radio>
+          <v-radio type="radio" label="Film viewing" value="Film Viewing"></v-radio>
+          <v-radio type="radio" label="Clubings" value="Clubings"></v-radio>
+          <!-- <v-radio label="Others" value="educ-5"></v-radio> -->
+          <!-- <v-text-field  label="Others"></v-text-field> -->
+        </v-radio-group>
+        <hr>
         <v-radio-group :rules="[v=>!!v||'required']" v-model="question8" column>
           <h3>What subject do you find difficult?</h3>
           <v-radio type="radio" label="Programming" value="Programming"></v-radio>
@@ -175,7 +177,6 @@ export default {
   data() {
     return {
       valid: true,
-
       question1: null,
       question2: null,
       question3: null,
