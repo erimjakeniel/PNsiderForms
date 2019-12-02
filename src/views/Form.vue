@@ -1,10 +1,13 @@
 <template>
-  <v-container fluid>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <v-container fluid>
     <!-- <v-col col="12" md="4"></v-col>
     <v-col col="12" md="4"></v-col>-->
-    <v-form v-model="valid" ref="form">
+    <v-form v-model="valid" ref="form" class="form" >
       
-      <v-col col="12" md="4">
+      <!-- <v-col col="12" md="4"> -->
          <center>
           <h1>CENTER LIFE</h1>
         </center>
@@ -155,19 +158,24 @@
         <br>
 
         <v-btn color="primary" @click="submit">SUBMIT</v-btn>
-      </v-col>
+      <!-- </v-col> -->
     </v-form>
   </v-container>
+    </div>
+
+    <div class="col-md-2"></div>
+
+
+  </div>
+  
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       valid: true,
 
-      // show: false,
-      // othersVal: "",
-      questions1: null,
       question1: null,
       question2: null,
       question3: null,
@@ -183,19 +191,32 @@ export default {
     };
   },
   methods: {
-
     submit() {
       if (this.$refs.form.validate()) {
-        // submit
+        axios.post("localhost:3000/answers/added", {
+          question1: this.question1,
+          question2: this.question2,
+          question3: this.question3,
+          question4: this.question4,
+          question5: this.question5,
+          question6: this.question6,
+          question7: this.question7,
+          question8: this.question8,
+          question9: this.question9,
+          question10: this.question10,
+          question11: this.question11,
+          question12: this.question12
+        });
         console.log("ok");
       } else {
         console.log("required");
       }
-      
     }
-  
-
-   
   }
 };
 </script>
+<style lang="css" scoped>
+.col-md-8 {
+  background-color: #c3e4fd;
+}
+</style>
